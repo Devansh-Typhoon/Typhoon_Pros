@@ -1,5 +1,6 @@
 #include "main.h"
 #include "drive.cpp"
+
 //Controller
 pros:: Controller master(pros::E_CONTROLLER_MASTER);
 // Drive Motors
@@ -14,8 +15,8 @@ pros::Motor fw1(5,pros::E_MOTOR_GEAR_BLUE,true,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor fw2(6,pros::E_MOTOR_GEAR_BLUE,false,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor cam(7,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 //Expansion
-pros::ADIDigitalOut expansionR ('A');
-pros::ADIDigitalOut expansionL ('B');
+pros::ADIDigitalOut expansionR ('A',0);
+pros::ADIDigitalOut expansionL ('B',0);
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -76,7 +77,10 @@ void mainauton () {
 
 }
 
-void secondaryauton () {}
+void secondaryauton () {
+	
+}
+
 
 void autonskills () {}
 
@@ -231,9 +235,18 @@ else if (error1 and error2 == 0) {
 
 if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
 	cam.move_relative(1080,127);
+	
 }
 	
 	pros::delay(20);
+
+
+
+//Expansion
+
+if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
+	expansionL.set_value(true);
+	expansionR.set_value(true);
 }
-
-
+pros::delay(20);
+}
