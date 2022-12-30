@@ -234,7 +234,7 @@ else if (error1 and error2 == 0) {
 // Cam
 
 if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
-	cam.move_relative(1080,127);
+	cam.move_absolute(1080, 127);
 	
 }
 	
