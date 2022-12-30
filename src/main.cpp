@@ -28,8 +28,8 @@ void initialize() {
 	driveFR.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveBL.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveBR.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-	fw1.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	fw2.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	fw1.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+	fw2.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 
 }
 
@@ -153,7 +153,7 @@ void opcontrol() {
 	driveFL.move(rightx + righty + leftx);
 	driveFR.move(rightx - righty + leftx);
 	driveBR.move(rightx + righty - leftx);
-	driveFL.move(rightx - righty - leftx);
+	driveBL.move(rightx - righty - leftx);
 	
 
 	//Intake
@@ -238,7 +238,7 @@ if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
 	
 }
 	
-	pros::delay(20);
+	
 
 
 
