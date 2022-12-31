@@ -139,7 +139,7 @@ void opcontrol() {
   // Kp is for proportional gain
   float Kp = 0.175;
   // Ki is integral gain
-  float Ki = 0.00000001;
+  float Ki = 0;
   // Kd is derivative gain
   float Kd = 0.3;
 
@@ -219,15 +219,15 @@ else if (error1 and error2 == 0) {
   derivative2 = 0;
 }
 // Slowing the flywheel down
-  if (is_flywheel_running==0 and (rpm1+proportional1 + integral1 + derivative1 <=25 or rpm2+proportional2 + integral2 + derivative2<=25)) {
-      fw1.move(0);
-      fw2.move(0);
+  if (is_flywheel_running ==0) {
+      fw1.move_velocity(0);
+      fw2.move_velocity(0);
   }
 // Setting the velocities using PID
-  else
+  else if (is_flywheel_running == 1)
   {
-  fw1.move(rpm1+proportional1 + integral1 + derivative1);
-  fw1.move(rpm2+proportional2 + integral2 + derivative2);
+  fw1.move_velocity(rpm1+proportional1 + integral1 + derivative1);
+  fw1.move_velocity(rpm2+proportional2 + integral2 + derivative2);
   }
 
 }
