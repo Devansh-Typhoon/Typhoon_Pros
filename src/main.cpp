@@ -178,8 +178,8 @@ void opcontrol() {
 
 	error1 = (target_rpm - rpm1);
   	error2 = (target_rpm - rpm2);
-	rpm1 = fw1.get_actual_velocity();
-	rpm2 = fw2.get_actual_velocity();
+	rpm1 = fw1.get_actual_velocity()/4.724;
+	rpm2 = fw2.get_actual_velocity()/4.724;
 
   if (error1 and error2 != 0) {
 
@@ -219,22 +219,22 @@ else if (error1 and error2 == 0) {
   derivative2 = 0;
 }
 // Slowing the flywheel down
-  if (is_flywheel_running ==0) {
+  if (is_flywheel_running ==0  and (rpm1+proportional1 + integral1 + derivative1 <=25 or rpm2+proportional2 + integral2 + derivative2<=25)) {
       fw1.move_velocity(0);
       fw2.move_velocity(0);
   }
 // Setting the velocities using PID
   else if (is_flywheel_running == 1)
   {
-  fw1.move_velocity(rpm1+proportional1 + integral1 + derivative1);
-  fw1.move_velocity(rpm2+proportional2 + integral2 + derivative2);
+  fw1.move(rpm1+proportional1 + integral1 + derivative1);
+  fw1.move(rpm2+proportional2 + integral2 + derivative2);
   }
 
 }
 // Cam
 
 if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
-	cam.move_absolute(1080, 127);
+	cam.move_absolute(1080, 200);
 	
 }
 	
@@ -245,8 +245,8 @@ if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
 //Expansion
 
 if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
-	expansionL.set_value(true);
-	expansionR.set_value(true);
+	expansionL.set_value(false);
+	expansionR.set_value(false);
 }
 pros::delay(20);
 }
