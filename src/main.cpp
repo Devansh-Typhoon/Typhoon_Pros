@@ -28,8 +28,9 @@ void initialize() {
 	driveFR.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveBL.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveBR.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-	fw1.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-	fw2.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+	fw1.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	fw2.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 
 }
 
