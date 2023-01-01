@@ -147,13 +147,13 @@ void opcontrol() {
 	while (true) {
 	
 	//Drivebase
-	int rightx = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
-	int righty = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
 	int leftx = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X);
-	driveFL.move(rightx + righty + leftx);
-	driveFR.move(rightx - righty + leftx);
-	driveBR.move(rightx + righty - leftx);
-	driveBL.move(rightx - righty - leftx);
+	int lefty = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+	int rightx = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+	driveFL.move(leftx + lefty + rightx);
+	driveFR.move(leftx - lefty + rightx);
+	driveBR.move(leftx + lefty - rightx);
+	driveBL.move(leftx - lefty - rightx);
 	
 
 	//Intake
