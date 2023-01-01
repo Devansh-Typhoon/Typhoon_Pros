@@ -160,9 +160,18 @@ void opcontrol() {
 	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
 	intake.move(127);
 	}
-	else {
-	intake.move(0);	
-	};
+	else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+	intake.move(-127);	
+	}
+
+	else { 
+		intake.move(0);
+	}
+
+
+	
+	
+
 
 	//Flywheel
 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
