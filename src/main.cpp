@@ -137,11 +137,11 @@ void opcontrol() {
 // Input Constants here
 
   // Kp is for proportional gain
-  float Kp = 0.175;
+  float Kp = 1;
   // Ki is integral gain
   float Ki = 0;
   // Kd is derivative gain
-  float Kd = 0.3;
+  float Kd = 1;
 
 
 	while (true) {
