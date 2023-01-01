@@ -227,7 +227,7 @@ else if (error1 and error2 == 0) {
   else if (is_flywheel_running == 1)
   {
   fw1.move(rpm1+proportional1 + integral1 + derivative1);
-  fw1.move(rpm2+proportional2 + integral2 + derivative2);
+  fw2.move(rpm2+proportional2 + integral2 + derivative2);
   }
 
 }
