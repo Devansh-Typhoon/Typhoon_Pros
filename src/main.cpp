@@ -15,8 +15,8 @@ pros::Motor fw1(5,pros::E_MOTOR_GEAR_BLUE,true,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor fw2(6,pros::E_MOTOR_GEAR_BLUE,false,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor cam(7,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 //Expansion
-pros::ADIDigitalOut expansionR ('A',0);
-pros::ADIDigitalOut expansionL ('B',0);
+pros::ADIDigitalOut expansionR ('A', LOW);
+pros::ADIDigitalOut expansionL ('B', LOW);
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
