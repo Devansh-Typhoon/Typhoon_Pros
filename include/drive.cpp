@@ -10,9 +10,9 @@ void resetMotorEncoders() {
 
 void setDrive(float FL, float FR,float BL, float BR) {
     driveFL.move(FL);
-    driveFR.move(FR);
-    driveBL.move(BL);
-    driveBR.move(BR);
+    driveFR.move(FR * 0.8);
+    driveBL.move(BL * 0.9 );
+    driveBR.move(BR * 0.8);
 
 }
 //Flywheel Function
