@@ -64,16 +64,16 @@ void competition_initialize() {}
  * from where it left off.
  */
 void mainauton () {
-	translate(0.15,127);
-	intake.move_relative(0.2,127);
-	translate(0.15, -127);
-	rotate(0.11,127);
+	translate(500,127);
+	intake.move_relative(180,127);
+	translate(500, -127);
+	rotate(120,127);
 	flywheel(0);
 	shoot(2);
-	rotate(-0.4,127);
+	rotate(120,127);
 	translate(4,127);
-	rotate(0.1,127);
-	intake.move_relative(0.2,127);
+	rotate(30,127);
+	intake.move_relative(120,127);
 
 
 }
@@ -243,10 +243,13 @@ else if (error1 and error2 == 0) {
 }
 // Cam
 
-if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
 	cam.move_absolute(1080, 200);
 	
 }
+else {
+	cam.move_absolute(0, 0);
+} 
 	
 	
 
