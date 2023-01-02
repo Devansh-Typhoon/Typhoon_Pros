@@ -241,7 +241,7 @@ else if (error1 and error2 == 0) {
   }
 
 }
-// Cam
+// Cam prog
 
 if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
 	cam.move_absolute(1080, 200);
