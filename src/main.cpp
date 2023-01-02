@@ -243,7 +243,7 @@ else if (error1 and error2 == 0) {
 }
 // Cam prog
 
-if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+if (master.get_digital(DIGITAL_R2)) {
 	cam.move_absolute(1080, 200);
 	
 }
