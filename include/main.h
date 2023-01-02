@@ -50,7 +50,7 @@ extern pros::Motor fw2;
 extern pros::Motor cam;
 //Pneumatics
 extern pros::ADIDigitalOut expansionR;
-extern pros::ADIDigitalOut expansion;
+extern pros::ADIDigitalOut expansionL;
 
 
 /**

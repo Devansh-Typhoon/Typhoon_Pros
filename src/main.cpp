@@ -258,8 +258,8 @@ else {
 //Expansion
 
 if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
-	expansionL.set_value(false);
-	expansionR.set_value(false);
+	expansionL.set_value(true);
+	expansionR.set_value(true);
 }
 pros::delay(20);
 }
