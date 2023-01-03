@@ -229,37 +229,30 @@ else if (error1 and error2 == 0) {
   derivative2 = 0;
 }
 // Slowing the flywheel down
-  if (is_flywheel_running ==0  and (rpm1+proportional1 + integral1 + derivative1 <=25 or rpm2+proportional2 + integral2 + derivative2<=25)) {
+	if (is_flywheel_running ==0  and (rpm1+proportional1 + integral1 + derivative1 <=25 or rpm2+proportional2 + integral2 + derivative2<=25)) {
       fw1.move_velocity(0);
       fw2.move_velocity(0);
   }
 // Setting the velocities using PID
-  else if (is_flywheel_running == 1)
+	else if (is_flywheel_running == 1)
   {
   fw1.move(rpm1+proportional1 + integral1 + derivative1);
   fw2.move(rpm2+proportional2 + integral2 + derivative2);
   }
 
-}
 // Cam prog
 
-if (master.get_digital(DIGITAL_R2)) {
-	cam.move_absolute(1080, 200);
+	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+	cam.move_relative(1080, 200);
 	
-}
-else {
-	cam.move_absolute(0, 0);
-} 
-	
-	
+	}
 
+	//Expansion
 
-
-//Expansion
-
-if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
+	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
 	expansionL.set_value(true);
 	expansionR.set_value(true);
+	}
 }
 pros::delay(20);
 }
