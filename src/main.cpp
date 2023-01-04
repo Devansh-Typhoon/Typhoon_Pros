@@ -64,15 +64,15 @@ void competition_initialize() {}
  * from where it left off.
  */
 void mainauton () {
-	translate(500,127);
-	intake.move_relative(180,127);
-	translate(500, -127);
-	rotate(120,127);
+	translate(0.1,127);
+	intake.move_relative(120,127);
+	translate(0.1, -127);
+	rotate(0.15,127);
 	flywheel(0);
 	shoot(2);
-	rotate(120,127);
-	translate(4,127);
-	rotate(30,127);
+	rotate(0.4,127);
+	translate(3,127);
+	rotate(0.3,127);
 	intake.move_relative(120,127);
 
 
@@ -251,6 +251,10 @@ else if (error1 and error2 == 0) {
 
 	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
 	expansionL.set_value(true);
+	
+	}
+	
+	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 	expansionR.set_value(true);
 	}
 }
