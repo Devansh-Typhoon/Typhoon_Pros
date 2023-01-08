@@ -16,10 +16,7 @@ void setDrive(float FL, float FR,float BL, float BR) {
 
 }
 //Flywheel Function
-void flywheel(void* ignore) {
-    fw1.move(127); 
-    fw2.move(127);
-}
+
 
 void shoot(int discs) {
     cam.move_relative(360 * discs, 127);
