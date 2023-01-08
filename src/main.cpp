@@ -150,7 +150,9 @@ void opcontrol() {
 
 	while (true) {
 	// Printing Flywheel Values to terminal
-	
+	printf("%d,%f,%f", fw1.get_actual_velocity());
+	printf("/n");
+	printf("%d,%f,%f", fw2.get_actual_velocity());
 
 
 	
