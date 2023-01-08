@@ -1,5 +1,21 @@
 #include "main.h"
 #include "drive.cpp"
+#include <iostream>
+#include <string>
+#include <sstream>
+
+int Brain_precision = 0, Console_precision = 0;
+
+const char* printToConsole_numberFormat() {
+  // look at the current precision setting to find the format string
+  switch(Console_precision){
+    case 0:  return "%.0f"; // 0 decimal places (1)
+    case 1:  return "%.1f"; // 1 decimal place  (0.1)
+    case 2:  return "%.2f"; // 2 decimal places (0.01)
+    case 3:  return "%.3f"; // 3 decimal places (0.001)
+    default: return "%f"; // use the print system default for everthing else
+  }
+}
 
 //Controller
 pros:: Controller master(pros::E_CONTROLLER_MASTER);
@@ -146,6 +162,13 @@ void opcontrol() {
 
 
 	while (true) {
+	// Printing Flywheel Values to terminal
+	printf("%.1f", fw1.get_actual_velocity());
+  	printf(";");
+  	printf("%.1f", fw2.get_actual_velocity());
+ 	printf("\n");
+
+
 	
 	//Drivebase
 	int leftx = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X);
