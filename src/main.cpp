@@ -1,5 +1,6 @@
 #include "main.h"
 #include "drive.cpp"
+<<<<<<< HEAD
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -17,6 +18,9 @@ const char* printToConsole_numberFormat() {
   }
 }
 
+=======
+//cricket
+>>>>>>> 10f9cd83e1374ed62d3c37e5290a1b7a6e92416c
 //Controller
 pros:: Controller master(pros::E_CONTROLLER_MASTER);
 // Drive Motors
