@@ -75,11 +75,11 @@ void mainauton () {
 	pros::delay(1000);
 	back(200, 127);
 	pros::delay(200);
-	rotateright(70,127);
+	rotateright(45,127);
 	pros::delay(1000);
 	shoot(2);
 	pros::delay(3000);
-	rotateright(265,127);
+	rotateright(370,127);
 	pros::delay(1000);
 	fwd(2420,127);
 	pros::delay(500);
