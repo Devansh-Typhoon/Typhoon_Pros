@@ -150,11 +150,11 @@ void opcontrol() {
 // Input Constants here
 
   // Kp is for proportional gain
-  float Kp = 1;
+  float Kp = 0.6;
   // Ki is integral gain
   float Ki = 0;
   // Kd is derivative gain
-  float Kd = 1;
+  float Kd = 0.5;
 
 
 	while (true) {
@@ -260,7 +260,7 @@ else if (error1 and error2 == 0) {
 
 // Cam prog
 
-	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2) && fw1.get_actual_velocity() > 300) {
 	cam.move_relative(1080, 200);
 	
 	}
