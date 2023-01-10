@@ -10,9 +10,9 @@ void resetMotorEncoders() {
 
 void setDrive(float FL, float FR,float BL, float BR) {
     driveFL.move(FL);
-    driveFR.move(FR * 0.8);
-    driveBL.move(BL * 0.9 );
-    driveBR.move(BR * 0.8);
+    driveFR.move(FR);
+    driveBL.move(BL);
+    driveBR.move(BR);
 
 }
 //Flywheel Function
@@ -23,16 +23,28 @@ void shoot(int discs) {
 }
 //Autonomous Functions
 
-void translate(int units, int voltage) {
+void fwd(int units, int voltage) {
 //reset motor encoders
 resetMotorEncoders();
-//drive fwd/back until units reached
+//drive fwd until units reached
 while (driveFL.get_position() < units) {
     setDrive(voltage,-voltage,-voltage,voltage);
 }
 //set drive back to neutral
     setDrive(0,0,0,0);
 }
+
+void back(int units, int voltage) {
+//reset motor encoders
+resetMotorEncoders();
+//drive fwd until units reached
+while (driveBL.get_position() < units) {
+    setDrive(-voltage,voltage,voltage,-voltage);
+}
+//set drive back to neutral
+    setDrive(0,0,0,0);
+}
+
 
 void strafe(int units, int voltage) {
     resetMotorEncoders();
@@ -46,11 +58,20 @@ void strafe(int units, int voltage) {
     setDrive(0,0,0,0);
 }
 
-void rotate(int units, int voltage) {
+void rotateleft(int units, int voltage) {
     resetMotorEncoders();
     // rotate until units are reached
     while (driveFL.get_position() < units) {
         setDrive(voltage,voltage,-voltage,-voltage);
+    }
+    //set drive back to neutral
+    setDrive(0,0,0,0);
+}
+void rotateright(int units, int voltage) {
+    resetMotorEncoders();
+    // rotate until units are reached
+    while (driveBL.get_position() < units) {
+        setDrive(-voltage,-voltage,voltage,voltage);
     }
     //set drive back to neutral
     setDrive(0,0,0,0);

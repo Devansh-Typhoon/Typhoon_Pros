@@ -1,5 +1,6 @@
 #include "main.h"
 #include "drive.cpp"
+#include "drive.hpp"
 
 
 //cricket
@@ -69,15 +70,22 @@ void competition_initialize() {}
 void mainauton () {
 	fw1.move(127); 
     fw2.move(127);
-	translate(0.1,127);
-	intake.move_relative(120,127);
-	translate(0.1, -127);
-	rotate(0.15,127);
+	fwd(200,127);
+	intake.move_relative(500,127);
+	pros::delay(1000);
+	back(200, 127);
+	pros::delay(200);
+	rotateright(70,127);
+	pros::delay(1000);
 	shoot(2);
-	rotate(0.4,127);
-	translate(3,127);
-	rotate(0.3,127);
-	intake.move_relative(120,127);
+	pros::delay(3000);
+	rotateright(250,127);
+	pros::delay(1000);
+	fwd(2420,127);
+	pros::delay(500);
+	rotateleft(70,127);
+	pros::delay(500);
+	intake.move_relative(500,127); 
 
 
 }
@@ -151,11 +159,10 @@ void opcontrol() {
 
 	while (true) {
 	// Printing Flywheel Values to terminal
-	printf("%d,%f,%f", fw1.get_actual_velocity());
+	printf("%d", fw1.get_actual_velocity());
 	printf(",");
-	printf("%d,%f,%f", fw2.get_actual_velocity());
+	printf("%d", fw2.get_actual_velocity());
 	printf("/n");
-
 
 	
 	//Drivebase
