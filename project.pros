@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Typhoon_VEX",
+    "project_name": "AWP",
     "target": "v5",
     "templates": {
       "kernel": {
