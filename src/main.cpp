@@ -73,17 +73,17 @@ void mainauton () {
 	fwd(200,127);
 	intake.move_relative(500,127);
 	pros::delay(1000);
-	back(200, 127);
+	back(100, 127);
 	pros::delay(200);
 	rotateright(45,127);
 	pros::delay(1000);
 	shoot(2);
 	pros::delay(3000);
-	rotateright(370,127);
+	rotateright(450,127);
 	pros::delay(1000);
 	fwd(2420,127);
 	pros::delay(500);
-	rotateleft(70,127);
+	rotateleft(90,127);
 	pros::delay(500);
 	intake.move_relative(500,127); 
 
