@@ -159,10 +159,9 @@ void opcontrol() {
 
 	while (true) {
 	// Printing Flywheel Values to terminal
-	printf("%d", fw1.get_actual_velocity());
-	printf(",");
-	printf("%d", fw2.get_actual_velocity());
-	printf("/n");
+	printf("%f", fw1.get_actual_velocity());
+	printf(";");
+	printf("\n");
 
 	
 	//Drivebase
