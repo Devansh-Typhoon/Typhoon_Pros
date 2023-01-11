@@ -47,8 +47,10 @@ void initialize() {
  */
 void disabled() {}
 
+
+
 /**
- * Runs after initialize(), and before autonomous when connected to the Field
+ * Runs aaaa after initialize(), and before autonomous when connected to the Field
  * Management System or the VEX Competition Switch. This is intended for
  * competition-specific initialization routines, such as an autonomous selector
  * on the LCD.
