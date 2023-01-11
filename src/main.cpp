@@ -71,7 +71,7 @@ void mainauton () {
 	fw1.move(127); 
     fw2.move(127);
 	fwd(200,127);
-	intake.move_relative(500,127);
+	intake.move_relative(100,127);
 	pros::delay(1000);
 	back(100, 127);
 	pros::delay(200);
@@ -79,9 +79,9 @@ void mainauton () {
 	pros::delay(1000);
 	shoot(2);
 	pros::delay(3000);
-	rotateright(450,127);
-	pros::delay(1000);
-	fwd(2420,127);
+	rotateright(420,127);
+	pros::delay(500);
+	fwd(3000,127);
 	pros::delay(500);
 	rotateleft(90,127);
 	pros::delay(500);
