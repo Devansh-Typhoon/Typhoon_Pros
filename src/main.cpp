@@ -99,8 +99,17 @@ void auton_win () {
 
 }
 
-void secondaryauton () {
-	
+void mainauton () {
+	fw1.move(127); 
+    fw2.move(127);
+	fwd(200,127);
+	intake.move_relative(100,127);
+	pros::delay(1000);
+	back(100, 127);
+	pros::delay(200);
+	rotateright(75,127);
+	pros::delay(1000);
+	shoot(2);
 }
 
 
@@ -108,6 +117,7 @@ void autonskills () {}
 
 void autonomous() {
 auton_win(); 
+//mainauton();
 // secondaryauton();
 // autonskills();
 
