@@ -76,7 +76,7 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void mainauton () {
+void auton_win () {
 	fw1.move(127); 
     fw2.move(127);
 	fwd(200,127);
@@ -107,7 +107,7 @@ void secondaryauton () {
 void autonskills () {}
 
 void autonomous() {
-mainauton(); 
+auton_win(); 
 // secondaryauton();
 // autonskills();
 
