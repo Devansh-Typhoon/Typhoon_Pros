@@ -77,39 +77,47 @@ void competition_initialize() {}
  * from where it left off.
  */
 void auton_win () {
-	fw1.move(127); 
-    fw2.move(127);
+	fw1.move(122); 
+    fw2.move(122);
 	fwd(200,127);
-	intake.move_relative(100,127);
+	intake.move_relative(-90,127);
 	pros::delay(1000);
 	back(100, 127);
 	pros::delay(200);
-	rotateright(75,127);
+	rotateright(45,127);
 	pros::delay(1000);
-	shoot(2);
+	cam.move_relative(360 , 127);
+	pros::delay(1200);
+	cam.move_relative(360 , 127);
 	pros::delay(3000);
-	rotateright(420,127);
+	rotateright(315,127);
 	pros::delay(500);
-	fwd(3000,127);
+	fwd(3050,127);
 	pros::delay(500);
-	rotateleft(90,127);
+	rotateleft(160,127);
 	pros::delay(500);
-	intake.move_relative(500,127); 
+	fwd(150,127);
+	pros::delay(200);
+	intake.move_relative(-90,127); 
+	
 
 
 }
 
 void mainauton () {
-	fw1.move(127); 
-    fw2.move(127);
+	fw1.move(122); 
+    fw2.move(122);
 	fwd(200,127);
-	intake.move_relative(100,127);
+	intake.move_relative(-90,127);
 	pros::delay(1000);
 	back(100, 127);
 	pros::delay(200);
-	rotateright(75,127);
+	rotateright(45,127);
 	pros::delay(1000);
-	shoot(2);
+	cam.move_relative(360 , 127);
+	pros::delay(1200);
+	cam.move_relative(360 , 127);
+	pros::delay(3000);
 }
 
 
@@ -169,11 +177,11 @@ void opcontrol() {
 // Input Constants here
 
   // Kp is for proportional gain
-  float Kp = 1;
+  float Kp = 0.5;
   // Ki is integral gain
   float Ki = 0;
   // Kd is derivative gain
-  float Kd = 0;
+  float Kd = 0.5;
 
 
 	while (true) {
