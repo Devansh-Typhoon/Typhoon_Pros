@@ -222,7 +222,7 @@ void opcontrol() {
 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
 		if (is_flywheel_running == 0) {
 			is_flywheel_running = 1;
-			target_rpm = 300;
+			target_rpm = 450;
 		}
 		else if (is_flywheel_running ==1) {
 			is_flywheel_running = 0;
