@@ -79,26 +79,34 @@ void competition_initialize() {}
 void auton_win () {
 	fw1.move(122); 
     fw2.move(122);
-	fwd(200,127);
+	fwd(120,127);
 	intake.move_relative(-90,127);
-	pros::delay(1000);
+	pros::delay(500);
 	back(100, 127);
 	pros::delay(200);
 	rotateright(45,127);
+	pros::delay(500);
+	cam.move_relative(360 , 127);
 	pros::delay(1000);
 	cam.move_relative(360 , 127);
-	pros::delay(1200);
-	cam.move_relative(360 , 127);
-	pros::delay(3000);
-	rotateright(315,127);
+	pros::delay(2000);
+	rotateright(240,127);
 	pros::delay(500);
-	fwd(3050,127);
+	fwd(860,127);
 	pros::delay(500);
-	rotateleft(160,127);
-	pros::delay(500);
-	fwd(150,127);
+	rotateright(140,127);
+	intake.move(127);
+	fwd(700,127);
+	rotateleft(90,127);
 	pros::delay(200);
-	intake.move_relative(-90,127); 
+	rotateleft(40,127);
+	fwd(1000,127);
+	
+	// rotateleft(160,127);
+	// pros::delay(500);
+	// fwd(150,127);
+	// pros::delay(200);
+	// intake.move_relative(-90,127)
 	
 
 
@@ -121,7 +129,41 @@ void mainauton () {
 }
 
 
-void autonskills () {}
+void autonskills () {
+	
+	fw1.move(122); 
+    fw2.move(122);
+	fwd(120,127);
+	intake.move_relative(-90,127);
+	pros::delay(500);
+	back(100, 127);
+	pros::delay(200);
+	rotateright(45,127);
+	pros::delay(500);
+	cam.move_relative(360 , 127);
+	pros::delay(1500);
+	cam.move_relative(360 , 127);
+	pros::delay(2000);
+	rotateright(240,127);
+	pros::delay(500);
+	fwd(860,127);
+	pros::delay(500);
+	rotateright(140,127);
+	intake.move(127);
+	fwd(700,127);
+	rotateleft(90,127);
+	pros::delay(200);
+	rotateleft(40,127);
+	fwd(1000,127);
+	
+	// pros::delay(500);
+	// fwd(150,127);
+	// pros::delay(200);
+	// intake.move_relative(-90,127)
+
+
+
+}
 
 void autonomous() {
 auton_win(); 
