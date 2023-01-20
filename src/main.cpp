@@ -1,6 +1,6 @@
 #include "main.h"
 #include "drive.cpp"
-//cricket
+
 //Controller
 pros:: Controller master(pros::E_CONTROLLER_MASTER);
 // Drive Motors
@@ -64,16 +64,9 @@ void competition_initialize() {}
  * from where it left off.
  */
 void mainauton () {
-	translate(0.1,127);
-	intake.move_relative(120,127);
-	translate(0.1, -127);
-	rotate(0.15,127);
-	flywheel(0);
-	shoot(2);
-	rotate(0.4,127);
-	translate(3,127);
-	rotate(0.3,127);
-	intake.move_relative(120,127);
+
+	translate(0.15,127);
+	printf("text");
 
 
 }
@@ -86,7 +79,7 @@ void secondaryauton () {
 void autonskills () {}
 
 void autonomous() {
-mainauton(); 
+	mainauton(); 
 // secondaryauton();
 // autonskills();
 
@@ -159,7 +152,7 @@ void opcontrol() {
 
 	//Intake
 	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-	intake.move(127);
+	intake.move_velocity(200);
 	}
 	else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
 	intake.move(-127);	
@@ -242,7 +235,7 @@ else if (error1 and error2 == 0) {
 
 // Cam prog
 
-	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2) && fw1.get_actual_velocity() > 400 ) {
 	cam.move_relative(1080, 200);
 	
 	}
