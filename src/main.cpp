@@ -78,7 +78,7 @@ void competition_initialize() {}
  */
 void auton_win () {
 	fw1.move(125); 
-    fw2.move(125);
+fw2.move(125);
 	fwd(120,127);
 	intake.move_relative(-90,127);
 	pros::delay(500);
@@ -139,7 +139,7 @@ void mainauton () {
 
 void autonskills () {
 	fw1.move(127); 
-    fw2.move(127);
+fw2.move(127);
 	fwd(120,127);
 	intake.move_relative(-90,127);
 	pros::delay(500);
