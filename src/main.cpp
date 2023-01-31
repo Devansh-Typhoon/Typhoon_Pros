@@ -77,18 +77,18 @@ void competition_initialize() {}
  * from where it left off.
  */
 void auton_win () {
-	fw1.move(122); 
-    fw2.move(122);
+	fw1.move(125); 
+    fw2.move(125);
 	fwd(120,127);
 	intake.move_relative(-90,127);
 	pros::delay(500);
 	back(100, 127);
 	pros::delay(200);
-	rotateright(45,127);
+	rotateright(50,127);
 	pros::delay(500);
-	cam.move_relative(360 , 40);
-	pros::delay(2500);
-	cam.move_relative(360 , 40);
+	cam.move_relative(360 , 127);
+	pros::delay(1000);
+	cam.move_relative(360 , 127);
 	pros::delay(1000);
 	rotateright(270,127);
 	pros::delay(500);
@@ -97,7 +97,7 @@ void auton_win () {
 	rotateright(150,127);
 	intake.move(127);
 	fwd(550,127);
-	rotateleft(140,127);
+	rotateleft(130,127);
 	pros::delay(200);
 	rotateleft(75,127);
 	fwd(1500,127);
@@ -105,11 +105,11 @@ void auton_win () {
 	fwd(300,127);
 	pros::delay(300);
 	back(200,127);
-	cam.move_relative(360,40);
+	cam.move_relative(360,127);
 	pros::delay(1000);
-	cam.move_relative(360,40);
+	cam.move_relative(360,127);
 	pros::delay(1000);
-	cam.move_relative(360,40);
+	cam.move_relative(360,127);
 	// rotateleft(160,127);
 	// pros::delay(500);
 	// fwd(150,127);
@@ -138,32 +138,43 @@ void mainauton () {
 
 
 void autonskills () {
-	
-	fw1.move(122); 
-    fw2.move(122);
+	fw1.move(127); 
+    fw2.move(127);
 	fwd(120,127);
 	intake.move_relative(-90,127);
 	pros::delay(500);
 	back(100, 127);
 	pros::delay(200);
-	rotateright(45,127);
-	pros::delay(500);
+	rotateright(50,127);
+	pros::delay(1000);
 	cam.move_relative(360 , 127);
-	pros::delay(1500);
+	pros::delay(1200);
 	cam.move_relative(360 , 127);
-	pros::delay(2000);
-	rotateright(240,127);
+	pros::delay(1000);
+	rotateright(270,127);
 	pros::delay(500);
-	fwd(860,127);
+	fwd(900,127);
 	pros::delay(500);
-	rotateright(140,127);
+	rotateright(150,127);
 	intake.move(127);
-	fwd(700,127);
-	rotateleft(90,127);
+	fwd(550,127);
+	rotateleft(130,127);
 	pros::delay(200);
-	rotateleft(40,127);
-	fwd(1000,127);
-	
+	rotateleft(75,127);
+	fwd(1650,127);
+	rotateleft(180,127);
+	fwd(200,127);
+	pros::delay(100);
+	back(200,127);
+	cam.move_relative(360,127);
+	pros::delay(1000);
+	cam.move_relative(360,127);
+	pros::delay(1000);
+	cam.move_relative(360,127);
+	expansionL.set_value(false);
+	expansionR.set_value(false);
+	expansionL.set_value(true);
+	expansionR.set_value(true);
 	// pros::delay(500);
 	// fwd(150,127);
 	// pros::delay(200);
@@ -174,10 +185,10 @@ void autonskills () {
 }
 
 void autonomous() {
-auton_win(); 
+// auton_win(); 
 //mainauton();
 // secondaryauton();
-// autonskills();
+autonskills();
 
 }
 
@@ -282,8 +293,8 @@ void opcontrol() {
 
 	error1 = (target_rpm - rpm1);
   	error2 = (target_rpm - rpm2);
-	rpm1 = fw1.get_actual_velocity()/4.724;
-	rpm2 = fw2.get_actual_velocity()/4.724;
+	rpm1 = fw1.get_actual_velocity();
+	rpm2 = fw2.get_actual_velocity();
 
   if (error1 and error2 != 0) {
 
@@ -330,8 +341,8 @@ else if (error1 and error2 == 0) {
 // Setting the velocities using PID
 	else if (is_flywheel_running == 1)
   {
-  fw1.move(rpm1+proportional1 + integral1 + derivative1);
-  fw2.move(rpm2+proportional2 + integral2 + derivative2);
+  fw1.move_velocity(rpm1+proportional1 + integral1 + derivative1);
+  fw2.move_velocity(rpm2+proportional2 + integral2 + derivative2);
   }
 
 // Cam prog
