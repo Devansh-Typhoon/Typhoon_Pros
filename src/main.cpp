@@ -1,6 +1,8 @@
 #include "main.h"
 #include "drive.cpp"
 #include "drive.hpp"
+#include "pros/imu.hpp"
+
 
 
 
@@ -10,10 +12,10 @@
 //Controller
 pros:: Controller master(pros::E_CONTROLLER_MASTER);
 // Drive Motors
-pros::Motor driveFL(1,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor driveFR(2,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor driveBL(3,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_DEGREES);
-pros::Motor driveBR(4,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor driveFL(1,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor driveFR(2,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor driveBL(3,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor driveBR(4,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_COUNTS);
 //Intake
  pros::Motor intake(8,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 // Flywheel related Motors
@@ -23,6 +25,8 @@ pros::Motor cam(7,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 //Expansion
 pros::ADIDigitalOut expansionR ('A', LOW);
 pros::ADIDigitalOut expansionL ('B', LOW);
+//Inertial
+pros::Imu imu(11);
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -76,119 +80,17 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void auton_win () {
-	fw1.move(125); 
-    fw2.move(125);
-	fwd(120,127);
-	intake.move_relative(-90,127);
-	pros::delay(500);
-	back(100, 127);
-	pros::delay(200);
-	rotateright(50,127);
-	pros::delay(500);
-	cam.move_relative(360 , 127);
-	pros::delay(1000);
-	cam.move_relative(360 , 127);
-	pros::delay(1000);
-	rotateright(270,127);
-	pros::delay(500);
-	fwd(900,127);
-	pros::delay(500);
-	rotateright(150,127);
-	intake.move(127);
-	fwd(550,127);
-	rotateleft(130,127);
-	pros::delay(200);
-	rotateleft(75,127);
-	fwd(1500,127);
-	rotateleft(180,127);
-	fwd(300,127);
-	pros::delay(300);
-	back(200,127);
-	cam.move_relative(360,127);
-	pros::delay(1000);
-	cam.move_relative(360,127);
-	pros::delay(1000);
-	cam.move_relative(360,127);
-	// rotateleft(160,127);
-	// pros::delay(500);
-	// fwd(150,127);
-	// pros::delay(200);
-	// intake.move_relative(-90,127)
+
+void auton_test() {
 	
-
-
 }
 
-void mainauton () {
-	fw1.move(122); 
-    fw2.move(122);
-	fwd(200,127);
-	intake.move_relative(-90,127);
-	pros::delay(1000);
-	back(100, 127);
-	pros::delay(200);
-	rotateright(45,127);
-	pros::delay(1000);
-	cam.move_relative(360 , 127);
-	pros::delay(1200);
-	cam.move_relative(360 , 127);
-	pros::delay(3000);
-}
-
-
-void autonskills () {
-	fw1.move(127); 
-    fw2.move(127);
-	fwd(120,127);
-	intake.move_relative(-90,127);
-	pros::delay(500);
-	back(100, 127);
-	pros::delay(200);
-	rotateright(50,127);
-	pros::delay(1000);
-	cam.move_relative(360 , 127);
-	pros::delay(1200);
-	cam.move_relative(360 , 127);
-	pros::delay(1000);
-	rotateright(270,127);
-	pros::delay(500);
-	fwd(900,127);
-	pros::delay(500);
-	rotateright(150,127);
-	intake.move(127);
-	fwd(550,127);
-	rotateleft(130,127);
-	pros::delay(200);
-	rotateleft(75,127);
-	fwd(1650,127);
-	rotateleft(180,127);
-	fwd(200,127);
-	pros::delay(100);
-	back(200,127);
-	cam.move_relative(360,127);
-	pros::delay(1000);
-	cam.move_relative(360,127);
-	pros::delay(1000);
-	cam.move_relative(360,127);
-	expansionL.set_value(false);
-	expansionR.set_value(false);
-	expansionL.set_value(true);
-	expansionR.set_value(true);
-	// pros::delay(500);
-	// fwd(150,127);
-	// pros::delay(200);
-	// intake.move_relative(-90,127)
-
-
-
-}
 
 void autonomous() {
 // auton_win(); 
 //mainauton();
 // secondaryauton();
-autonskills();
+
 
 }
 

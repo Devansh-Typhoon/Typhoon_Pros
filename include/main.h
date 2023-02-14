@@ -52,6 +52,8 @@ extern pros::Motor cam;
 extern pros::ADIDigitalOut expansionR;
 extern pros::ADIDigitalOut expansionL;
 
+extern pros::IMU imu;
+
 
 /**
  * You should add more #includes here
