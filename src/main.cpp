@@ -17,7 +17,7 @@ pros::Motor driveFR(2,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_COUNT
 pros::Motor driveBL(3,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_COUNTS);
 pros::Motor driveBR(4,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_COUNTS);
 //Intake
- pros::Motor intake(8,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
+ pros::Motor intake(9,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 // Flywheel related Motors
 pros::Motor fw1(5,pros::E_MOTOR_GEAR_BLUE,true,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor fw2(6,pros::E_MOTOR_GEAR_BLUE,false,pros::E_MOTOR_ENCODER_DEGREES);
@@ -80,16 +80,24 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-
-void auton_test() {
 	
-}
+
+
+
+
+
+
 
 
 void autonomous() {
 // auton_win(); 
 //mainauton();
 // secondaryauton();
+
+
+
+// autonskills();
+// consistentautonskills();
 
 
 }
@@ -115,7 +123,7 @@ void opcontrol() {
 	float proportional1;
  	float proportional2;
 
- 	int target_rpm = 0;
+ 	int target_rpm;
 
  	float TotalError1;
  	float TotalError2;
