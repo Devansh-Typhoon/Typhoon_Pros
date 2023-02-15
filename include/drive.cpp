@@ -163,7 +163,7 @@ while (heading != (target_deg/20)) {
 
     setDrive(drive_outFL,drive_outFR,-drive_outBL,-drive_outBR);
    }
-   else if (heading > (target_deg/26)) {
+   else if (heading > (target_deg/20)) {
     pidFL(inch);
     pidFR(inch);
     pidBL(inch);
