@@ -2,7 +2,7 @@
 #include "drive.cpp"
 #include "drive.hpp"
 #include "pros/imu.hpp"
-
+#include <cmath>
 
 
 
@@ -26,7 +26,7 @@ pros::Motor cam(7,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 pros::ADIDigitalOut expansionR ('A', LOW);
 pros::ADIDigitalOut expansionL ('B', LOW);
 //Inertial
-pros::Imu imu(11);
+pros::Imu imu(10);
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -82,7 +82,10 @@ void competition_initialize() {}
  */
 	
 
-
+void auton_win() {
+translate(5);
+rotate(57);
+}
 
 
 
@@ -90,16 +93,7 @@ void competition_initialize() {}
 
 
 void autonomous() {
-// auton_win(); 
-//mainauton();
-// secondaryauton();
-
-
-
-// autonskills();
-// consistentautonskills();
-
-
+auton_win(); 
 }
 
 /**
