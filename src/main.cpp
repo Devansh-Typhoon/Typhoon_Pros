@@ -2,7 +2,7 @@
 #include "drive.cpp"
 #include "drive.hpp"
 #include "pros/imu.hpp"
-#include <cmath>
+// #include <cmath>
 
 
 
@@ -12,14 +12,14 @@
 //Controller
 pros:: Controller master(pros::E_CONTROLLER_MASTER);
 // Drive Motors
-pros::Motor driveFL(1,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor driveFR(2,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor driveBL(3,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor driveBR(4,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor driveFL(1,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor driveFR(2,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor driveBL(3,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor driveBR(4,pros::E_MOTOR_GEAR_GREEN,true,pros::E_MOTOR_ENCODER_DEGREES);
 //Intake
  pros::Motor intake(9,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 // Flywheel related Motors
-pros::Motor fw1(5,pros::E_MOTOR_GEAR_BLUE,true,pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor fw1(5,pros::E_MOTOR_GEAR_BLUE,false,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor fw2(6,pros::E_MOTOR_GEAR_BLUE,false,pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor cam(7,pros::E_MOTOR_GEAR_GREEN,false,pros::E_MOTOR_ENCODER_DEGREES);
 //Expansion
@@ -83,8 +83,43 @@ void competition_initialize() {}
 	
 
 void auton_win() {
-translate(5);
-rotate(57);
+// the direction of movement will always be to the left, however you can use rotate right and left to have a good final destination
+fw1.move(122);
+fw1.move(122);
+fwd(2,127);
+pros::delay(500);
+intake.move_absolute(120,127);
+pros::delay(500);
+back(6,127);
+rotateRight(350);
+pros::delay(500);
+cam.move_absolute(360,127);
+pros::delay(1200);
+cam.move_absolute(360,127);
+pros::delay(1200);
+rotateRight(270);
+fw1.move(0);
+fw2.move(0);
+fwd(40,120);
+rotateRight(275);
+fwd(36,122);
+rotateRight(50);
+intake.move(127);
+fwd(86.2,110);
+pros::delay(500);
+rotateRight(45);
+intake.move(0);
+fwd(10,120);
+intake.move_relative(120,200);
+back(10,120);
+pros::delay(500);
+cam.move_absolute(360,127);
+pros::delay(1200);
+cam.move_absolute(360,127);
+pros::delay(1200);
+
+// rotateRight(90);
+// rotateRight(90);
 }
 
 
