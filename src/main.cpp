@@ -85,7 +85,7 @@ void competition_initialize() {}
 void auton_win() {
 // the direction of movement will always be to the left, however you can use rotate right and left to have a good final destination
 fw1.move(122);
-fw1.move(122);
+fw2.move(122);
 fwd(2,127);
 pros::delay(500);
 intake.move_absolute(120,127);
