@@ -86,7 +86,7 @@ void auton_win() {
 // the direction of movement will always be to the left, however you can use rotate right and left to have a good final destination
 fw1.move(122);
 fw2.move(122);
-fwd(2,127);
+fwd(8,127);
 pros::delay(500);
 intake.move_absolute(120,127);
 pros::delay(500);
@@ -103,7 +103,7 @@ fw2.move(0);
 fwd(40,120);
 rotateRight(275);
 fwd(36,122);
-rotateRight(50);
+rotateRight(66);
 intake.move(127);
 fwd(86.2,110);
 pros::delay(500);
@@ -112,14 +112,167 @@ intake.move(0);
 fwd(10,120);
 intake.move_relative(120,200);
 back(10,120);
-pros::delay(500);
-cam.move_absolute(360,127);
-pros::delay(1200);
-cam.move_absolute(360,127);
-pros::delay(1200);
+// pros::delay(500);
+// cam.move_absolute(360,127);
+// pros::delay(1200);
+// cam.move_absolute(360,127);
+// pros::delay(1200);
 
 // rotateRight(90);
 // rotateRight(90);
+}
+void pre_match_auton() {
+	// Flywheel Turns on
+fw1.move(124);
+fw2.move(124);
+//Getting Roller
+fwd(8,120); 
+intake.move_relative(90,600); 
+back(12,120); 
+//Shooting 2 discs
+rotateRight(340); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+//Turning to intake 
+rotateRight(325); 
+fw1.move(0);
+fw2.move(0);
+//Knocking over discs
+fwd(34,120); 
+pros::delay(500); 
+//Getting the 3 Stack slowly
+intake.move(127); 
+fwd(8,120); 
+pros::delay(500); 
+fwd(8,120); 
+pros::delay(500); 
+fw1.move(124);
+fw2.move(124);
+fwd(8,120); 
+intake.move(0);
+pros::delay(500); 
+//Shooting 3 from roughly the middle
+rotateRight(265); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+}
+
+
+void auton_skills_devansh() {
+// Flywheel Turns on
+fw1.move(124);
+fw2.move(124);
+//Getting Roller
+fwd(8,120); 
+intake.move_relative(90,600); 
+back(12,120); 
+//Shooting 2 discs
+rotateRight(340); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+//Turning to intake 
+rotateRight(325); 
+fw1.move(0);
+fw2.move(0);
+//Knocking over discs
+fwd(34,120); 
+pros::delay(500); 
+//Getting the 3 Stack slowly
+intake.move(127); 
+fwd(8,120); 
+pros::delay(500); 
+fwd(8,120); 
+pros::delay(500); 
+fw1.move(124);
+fw2.move(124);
+fwd(8,120); 
+intake.move(0);
+pros::delay(500); 
+//Shooting 3 from roughly the middle
+rotateRight(265); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+rotateRight(95); 
+fw1.move(0);
+fw2.move(0);
+intake.move(127); 
+fwd(34,120);  
+fw1.move(124);
+fw2.move(124);
+rotateRight(245); 
+intake.move(0); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+rotateRight(115);
+fw1.move(0);
+fw2.move(0); 
+pros::delay(500); 
+fwd(34,120); 
+rotateRight(45); 
+fwd(5,120); 
+intake.move_relative(90,600); 
+back(30,120); 
+rotateRight(270); 
+fwd(30,127); 
+intake.move_relative(90,600); 
+back(12,127); 
+rotateRight(325); 
+fwd(34,120); 
+pros::delay(500); 
+intake.move(127); 
+fwd(8,120); 
+pros::delay(500); 
+fwd(8,120); 
+pros::delay(500); 
+fwd(8,120); 
+intake.move(0); 
+pros::delay(500); 
+fw1.move(124);
+fw2.move(124);
+rotateRight(265); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200);
+fw1.move(0);
+fw2.move(0); 
+rotateRight(95); 
+intake.move(127); 
+fwd(34,120);  
+fw1.move(124);
+fw2.move(124);
+rotateRight(245); 
+intake.move(0); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+cam.move_relative(360,200); 
+pros::delay(1200); 
+fw1.move(0);
+fw2.move(0);
+rotateRight(115); 
+pros::delay(500); 
+fwd(34,120); 
+rotateRight(45); 
+fwd(5,120); 
 }
 
 
@@ -128,7 +281,9 @@ pros::delay(1200);
 
 
 void autonomous() {
-auton_win(); 
+// auton_win(); 
+// auton_skills_devansh();
+pre_match_auton();
 }
 
 /**
