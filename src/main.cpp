@@ -450,12 +450,11 @@ else if (error1 and error2 == 0) {
 
 	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
 	expansionL.set_value(true);
-	
-	}
-	
-	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 	expansionR.set_value(true);
+	
 	}
-}
+	
+	
+
 pros::delay(20);
 }
